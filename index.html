@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title></title>
+</head>
+
+<body>
+
+<section id="container"></section>
+
+<script id="template" type="text/ractive">
+<h1>KiiLib_JavaScript_Lite</h1>
+
+<a href="./docs.html">Docs</a><br/>
+<label>Client</label>
+<select value="{{client}}">
+{{#clients}}
+<option value="{{.}}">{{.name}}</option>
+{{/}}
+</select><br/>
+
+<label>APIs</label>
+<ul>
+{{#apis:i}}
+<li on-click="@this.addAPI(i)">{{.name}}</li>
+{{/}}
+</ul>
+
+<label>Added</label>
+<ul>
+{{#list:i}}
+<li on-click="@this.removeAPI(i)">{{.name}}</li>
+{{/}}
+</ul>
+
+<button on-click="@this.create()">Create</button>
+<pre><code>{{out}}</code></pre>
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/ractive@0.9.6/ractive.js"></script>
+<script src="./app.js"></script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>KiiLib_JavaScript_Lite docs</title>
+</head>
+<body>
+<h1>Docs</h1>
+
+<h2>Login as AppAdmin</h2>
+
+<pre><code>var kii = lib('appID', 'appKey', 'https://api-jp.kii.com/api');
+
+kii.loginAsAdmin('clientID', 'clientSecret').then((o) => {
+    console.log('login succeeded!');
+}).catch((e) => {
+    console.log('failed to login');
+});
+</code></pre>
+
+<h2>Login as AppUser</h2>
+
+<pre><code>var kii = lib('appID', 'appKey', 'https://api-jp.kii.com/api');
+
+// you can use username, email or phone number as identifier.
+var identifier = 'example@example.com';
+
+kii.login(identifier, 'password').then((o) => {
+    console.log('login succeeded!');
+}).catch((e) => {
+    console.log('failed to login');
+});
+</code></pre>
+
+<h2>Fetch current user</h2>
+
+<pre><code>var kii = lib('appID', 'appKey', 'https://api-jp.kii.com/api');
+kii.token = 'access token';
+
+kii.fetch('/users/me').then((u) => {
+    console.log(u);
+}).catch((e) => {
+    console.log('failed to fetch');
+});
+</code></pre>
+
+<h2>Fetch current user's scope object</h2>
+
+<pre><code>var kii = lib('appID', 'appKey', 'https://api-jp.kii.com/api');
+kii.token = 'access token';
+
+kii.fetch('/users/me/bucktes/myBucket/objects/66592590-b8b1-11e7-8b9e-22000a7f900d').then((o) => {
+    console.log(o);
+}).catch((e) => {
+    console.log('failed to fetch');
+});
+</code></pre>
+</body>
+</html>
