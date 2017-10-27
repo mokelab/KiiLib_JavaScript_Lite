@@ -11,34 +11,53 @@
 <section id="container"></section>
 
 <script id="template" type="text/ractive">
-<h1>KiiLib_JavaScript_Lite</h1>
+<header class="toolbar">
+  <h1>KiiLib_JavaScript_Lite</h1>
+</header>
+
+<div class="topspace"></div>
 
 <a href="./docs.html">Docs</a><br/>
-<label>Client</label>
-<select value="{{client}}">
-{{#clients}}
-<option value="{{.}}">{{.name}}</option>
-{{/}}
-</select><br/>
 
-<label>APIs</label>
-<ul>
-{{#apis:i}}
-<li on-click="@this.addAPI(i)">{{.name}}</li>
-{{/}}
-</ul>
+<section style="margin-left:16px;margin-bottom:16px;">
+  <label>Client</label><br/>
+  <select value="{{client}}">
+    {{#clients}}
+    <option value="{{.}}">{{.name}}</option>
+    {{/}}
+  </select>
+</section>
 
-<label>Added</label>
-<ul>
-{{#list:i}}
-<li on-click="@this.removeAPI(i)">{{.name}}</li>
-{{/}}
-</ul>
+<section>
+  <section class="card" 
+           style="display:inline-block;width:calc(49% - 32px);margin-left:16px;">
+    <label>APIs</label>
+    <ul class="listBox">
+      {{#apis:i}}
+      <li class="listItem" on-click="@this.addAPI(i)">{{.name}}</li>
+      {{/}}
+    </ul>
+  </section>
 
-<button on-click="@this.create()">Create</button>
-<pre><code>{{out}}</code></pre>
+  <section class="card" 
+           style="display:inline-block;width:calc(49% - 32px);vertical-align:top;margin-left:16px;">
+    <label>Added</label>
+    <ul class="listBox">
+      {{#list:i}}
+      <li class="listItem" on-click="@this.removeAPI(i)">{{.name}}</li>
+      {{/}}
+    </ul>
+  </section>
+</section>
+
+<section style="text-align:right;padding-right:16px;">
+  <button on-click="@this.create()">Create</button>
+</section>
+
+<pre class="card" style="margin:16px 16px;padding:8px 8px;"><code>{{out}}</code></pre>
 </script>
 
+<link rel="stylesheet" type="text/css" href="./style.css"/>
 <script src="https://cdn.jsdelivr.net/npm/ractive@0.9.6/ractive.js"></script>
 <script src="./app.js"></script>
 
