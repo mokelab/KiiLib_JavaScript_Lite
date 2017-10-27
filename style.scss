@@ -1,0 +1,54 @@
+$colorPrimary:#4285f4;
+* {
+    margin : 0;
+    padding : 0;
+}
+
+.toolbar {
+    position : fixed;
+    width : 100%;
+    height : 64px;
+    background-color : $colorPrimary;
+    color : white;
+    h1 {
+        height: 64px;
+        line-height: 64px;
+        padding-left: 16px;
+    }
+    .nav-button {
+        position: relative;
+        top: 8px;
+        right: 8px;
+    }
+}
+.topspace {
+    height : 64px;
+}
+
+.listItem {
+    border-bottom: 1px solid lightGray;
+    list-style-type: none;
+    min-height: 48px;
+    line-height: 48px;
+    padding-left: 16px;
+    cursor: pointer;
+}
+
+.listBox {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+button {
+    background-color: $colorPrimary;
+    border-style: none;
+    padding : 4px 16px;
+    margin: 4px;
+    color : white;
+    min-height: 44px;
+    cursor : pointer;
+}
